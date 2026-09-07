@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import CategoryManager from './components/CategoryManager';
 import ProductManager from './components/ProductManager';
+import AboutManager from './components/AboutManager';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -90,7 +91,7 @@ const AdminDashboard = () => {
         <header className="admin-header">
           <div>
             <h1 style={{ margin: 0, fontSize: '1.5rem', color: 'var(--admin-text)' }}>
-              {activeTab === 'dashboard' ? 'Overview Dashboard' : activeTab === 'categories' ? 'Category Management' : 'Products & Pricing'}
+              {activeTab === 'dashboard' ? 'Overview Dashboard' : activeTab === 'categories' ? 'Category Management' : activeTab === 'products' ? 'Products & Pricing' : 'About Section Management'}
             </h1>
             <p style={{ margin: '0.25rem 0 0', color: 'var(--admin-text-muted)', fontSize: '0.875rem' }}>Manage your furniture pieces, designs, and collections.</p>
           </div>
@@ -120,6 +121,10 @@ const AdminDashboard = () => {
 
             {activeTab === 'products' && (
               <ProductManager tiles={tiles} categories={categories} refresh={fetchData} />
+            )}
+
+            {activeTab === 'about' && (
+              <AboutManager />
             )}
           </div>
         )}

@@ -11,6 +11,9 @@ const Hero = () => {
 
   return (
     <section className="bajaj-hero" aria-label="Bajaj Associates furniture collection">
+      <div className="hero-ambient-orb orb-1" aria-hidden="true" />
+      <div className="hero-ambient-orb orb-2" aria-hidden="true" />
+
       <picture className="bajaj-hero-media" aria-hidden="true">
         <source media="(min-width: 769px)" srcSet="/bajaj-hero-desktop.png" />
         <img src="/bajaj-hero-mobile.png" alt="" />

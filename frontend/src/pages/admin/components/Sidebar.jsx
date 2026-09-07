@@ -12,7 +12,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, mobileOpen }) => {
       
       <nav style={{ flex: 1, padding: '1rem 0' }}>
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          {['dashboard', 'categories', 'products'].map((tab) => (
+          {['dashboard', 'categories', 'products', 'about'].map((tab) => (
             <li key={tab}>
               <button 
                 onClick={() => setActiveTab(tab)}
@@ -29,7 +29,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, mobileOpen }) => {
                   transition: 'all 0.3s'
                 }}
               >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                {tab === 'about' ? 'About Section' : tab.charAt(0).toUpperCase() + tab.slice(1)}
               </button>
             </li>
           ))}
