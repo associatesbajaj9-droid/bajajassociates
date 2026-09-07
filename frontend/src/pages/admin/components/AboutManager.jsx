@@ -8,6 +8,7 @@ const AboutManager = () => {
     story1: '',
     story2: '',
     phone: '',
+    email: '',
     instagramLink: '',
     storeImageUrl: '',
     address: '',
@@ -35,6 +36,7 @@ const AboutManager = () => {
           story1: data.story1 || '',
           story2: data.story2 || '',
           phone: data.phone || '',
+          email: data.email || '',
           instagramLink: data.instagramLink || '',
           storeImageUrl: data.storeImageUrl || '',
           address: data.address || '',
@@ -229,6 +231,18 @@ const AboutManager = () => {
         </div>
 
         <div>
+          <label style={{ display: 'block', color: 'var(--admin-text)', marginBottom: '0.5rem', fontWeight: '500' }}>Contact Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="bajajassociates.furniture@gmail.com"
+            style={inputStyle}
+          />
+        </div>
+
+        <div>
           <label style={{ display: 'block', color: 'var(--admin-text)', marginBottom: '0.5rem', fontWeight: '500' }}>Showroom Address</label>
           <textarea
             name="address"
@@ -237,6 +251,19 @@ const AboutManager = () => {
             onChange={handleChange}
             style={{ ...inputStyle, resize: 'vertical' }}
           />
+        </div>
+
+        <div>
+          <label style={{ display: 'block', color: 'var(--admin-text)', marginBottom: '0.5rem', fontWeight: '500' }}>Google Map Embed URL (iframe src)</label>
+          <input
+            type="text"
+            name="mapEmbedUrl"
+            value={formData.mapEmbedUrl}
+            onChange={handleChange}
+            placeholder="https://maps.google.com/maps?q=..."
+            style={inputStyle}
+          />
+          <small style={{ color: 'var(--admin-text-muted)', display: 'block', marginTop: '0.25rem' }}>Paste the direct URL from Google Maps Embed iframe src attribute.</small>
         </div>
 
         <button
