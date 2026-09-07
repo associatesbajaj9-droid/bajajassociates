@@ -1,0 +1,202 @@
+.bajaj-hero {
+  position: relative;
+  min-height: calc(100vh - 75px);
+  overflow: hidden;
+  background: #3e2417;
+  isolation: isolate;
+}
+
+.bajaj-hero-media,
+.bajaj-hero-media img,
+.bajaj-hero-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bajaj-hero-media { z-index: -3; }
+
+.bajaj-hero-media img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.bajaj-hero-overlay {
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(47, 26, 16, 0.90) 0%, rgba(68, 37, 22, 0.68) 34%, rgba(68, 37, 22, 0.26) 58%, rgba(47, 26, 16, 0.05) 100%),
+    linear-gradient(0deg, rgba(47, 26, 16, 0.20), transparent 42%);
+}
+
+.bajaj-hero-content {
+  width: min(100%, 1280px);
+  min-height: calc(100vh - 75px);
+  margin: 0 auto;
+  padding: 72px 48px;
+  display: flex;
+  align-items: center;
+}
+
+.bajaj-hero-copy {
+  width: min(650px, 56vw);
+  color: #fff8ee;
+}
+
+.bajaj-eyebrow {
+  margin: 0 0 18px;
+  color: #d4a64a;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.bajaj-title {
+  margin: 0;
+  max-width: 680px;
+  font-family: 'Playfair Display', 'Cinzel', Georgia, serif;
+  font-size: clamp(3.5rem, 7vw, 6.8rem);
+  line-height: 0.94;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: #fff8ee;
+  text-shadow: 0 8px 30px rgba(47, 26, 16, 0.28);
+}
+
+.bajaj-title span { color: #e0a24a; }
+
+.bajaj-hero-copy h2 {
+  margin: 26px 0 0;
+  max-width: 590px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.55rem);
+  line-height: 1.12;
+  font-weight: 500;
+  color: #fff4e5;
+}
+
+.bajaj-description {
+  margin: 20px 0 0;
+  max-width: 570px;
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.75;
+  color: #f2ddc5;
+}
+
+.bajaj-hero-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.bajaj-hero-actions button {
+  min-height: 50px;
+  padding: 13px 28px;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+}
+
+.bajaj-primary-btn {
+  border: 1px solid #c95f1e;
+  background: #c95f1e;
+  color: #fffaf4;
+  box-shadow: 0 12px 32px rgba(86, 42, 17, 0.28);
+}
+
+.bajaj-primary-btn span {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 1.15em;
+  transition: transform 0.22s ease;
+}
+
+.bajaj-primary-btn:hover {
+  transform: translateY(-2px);
+  background: #ae4812;
+  border-color: #ae4812;
+  box-shadow: 0 16px 36px rgba(86, 42, 17, 0.36);
+}
+
+.bajaj-primary-btn:hover span { transform: translateX(3px); }
+
+.bajaj-secondary-btn {
+  border: 1px solid rgba(212, 166, 74, 0.82);
+  background: rgba(255, 248, 238, 0.10);
+  color: #fff8ee;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.bajaj-secondary-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 248, 238, 0.18);
+  border-color: #e0a24a;
+}
+
+@media (max-width: 768px) {
+  .bajaj-hero {
+    min-height: calc(100svh - 54px);
+  }
+
+  .bajaj-hero-media img {
+    object-position: center center;
+  }
+
+  .bajaj-hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(47, 26, 16, 0.88) 0%, rgba(56, 31, 19, 0.70) 31%, rgba(56, 31, 19, 0.26) 55%, rgba(47, 26, 16, 0.08) 75%),
+      linear-gradient(0deg, rgba(47, 26, 16, 0.22), transparent 36%);
+  }
+
+  .bajaj-hero-content {
+    min-height: calc(100svh - 54px);
+    padding: 52px 22px 36px;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .bajaj-hero-copy {
+    width: min(100%, 580px);
+  }
+
+  .bajaj-eyebrow {
+    margin-bottom: 13px;
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+  }
+
+  .bajaj-title {
+    font-size: clamp(2.9rem, 13vw, 4.7rem);
+    line-height: 0.98;
+  }
+
+  .bajaj-hero-copy h2 {
+    max-width: 520px;
+    margin: 18px auto 0;
+    font-size: clamp(1.45rem, 6vw, 2.1rem);
+  }
+
+  .bajaj-description {
+    max-width: 500px;
+    margin: 14px auto 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .bajaj-hero-actions {
+    margin-top: 22px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .bajaj-hero-content { padding-inline: 18px; }
+  .bajaj-hero-actions { flex-direction: column; width: 100%; }
+  .bajaj-hero-actions button { width: min(100%, 320px); margin: 0 auto; }
+}
