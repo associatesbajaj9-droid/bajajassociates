@@ -39,12 +39,12 @@ const Footer = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [navigate]);
 
-  const phone = footerData?.phone || import.meta.env.VITE_PHONE_NUMBER || "9111999271";
+  const phone = footerData?.phone || import.meta.env.VITE_PHONE_NUMBER || "7225001109";
   const email = footerData?.email || "bajajassociates.furniture@gmail.com";
   const igLink = footerData?.instagramLink || import.meta.env.VITE_INSTAGRAM_LINK || "https://www.instagram.com/singhai.harshjain";
-  const mapLink = footerData?.mapEmbedUrl || import.meta.env.VITE_MAPS_LINK || "https://www.google.com/maps/search/?api=1&query=53%2F33+Rameshwaram+Colony%2C+Beside+New+Laxmi+Pratisthan%2C+Vijay+Nagar+Main+Road%2C+Jabalpur+482002+%28M.P.%29";
-  const address = footerData?.address || "53/33 Rameshwaram Colony,\nBeside New Laxmi Pratisthan,\nVijay Nagar Main Road,\nJabalpur 482002 (M.P.)";
-  const mapEmbedUrl = footerData?.mapEmbedUrl || "https://maps.google.com/maps?q=53/33%20Rameshwaram%20Colony,%20Beside%20New%20Laxmi%20Pratisthan,%20Vijay%20Nagar%20Main%20Road,%20Jabalpur%20482002%20(M.P.)&t=&z=16&ie=UTF8&iwloc=&output=embed";
+  const mapLink = footerData?.mapEmbedUrl || import.meta.env.VITE_MAPS_LINK || "https://maps.app.goo.gl/rbXvJT3BbKEgCAqw5";
+  const address = footerData?.address || "Housing board, Subhash nagar, ward no 75\nmaharajpur, jabalpur, madhyapradesh";
+  const mapEmbedUrl = footerData?.mapEmbedUrl || "https://maps.google.com/maps?q=Housing%20board%20,%20Subhash%20nagar%20,%20ward%20no%2075%20maharajpur%20,jabalpur%20,madhyapradesh&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
   return (
     <footer className="site-footer">
