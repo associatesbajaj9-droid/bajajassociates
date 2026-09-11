@@ -13,11 +13,11 @@ const About = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const envWaNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "9111999271";
+  const envWaNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "7225001109";
   const waNumber = aboutData?.phone || envWaNumber;
-  const phone = aboutData?.phone || import.meta.env.VITE_PHONE_NUMBER || "9111999271";
+  const phone = aboutData?.phone || import.meta.env.VITE_PHONE_NUMBER || "7225001109";
   const igLink = aboutData?.instagramLink || import.meta.env.VITE_INSTAGRAM_LINK || "https://www.instagram.com/singhai.harshjain";
-  const mapLink = aboutData?.mapEmbedUrl || import.meta.env.VITE_MAPS_LINK || "https://www.google.com/maps/search/?api=1&query=53%2F33+Rameshwaram+Colony%2C+Beside+New+Laxmi+Pratisthan%2C+Vijay+Nagar+Main+Road%2C+Jabalpur+482002+%28M.P.%29";
+  const mapLink = aboutData?.mapEmbedUrl || import.meta.env.VITE_MAPS_LINK || "https://maps.app.goo.gl/rbXvJT3BbKEgCAqw5";
 
   const openWhatsApp = () => {
     const msg = encodeURIComponent("Hi! I'd like to know more about Bajaj Associates furniture store.");
@@ -30,7 +30,7 @@ const About = () => {
   const story1 = aboutData?.story1 || "With over 15 years of experience, Bajaj Associates is your trusted source for premium handcrafted sofas, elegant dining sets, bespoke beds, luxury wardrobes, study desks, and contemporary home decor. We serve homeowners, interior designers, and architects across the region — delivering comfort, durability, and elegance at every budget.";
   const story2 = aboutData?.story2 || "Our expert team helps you choose the perfect furniture to match your vision — whether it's a luxury home makeover or a modern office setup. Visit our showroom or browse our digital collections to explore hundreds of curated designs.";
   const storeImageUrl = aboutData?.storeImageUrl;
-  const address = aboutData?.address || "53/33 Rameshwaram Colony,\nBeside New Laxmi Pratisthan,\nVijay Nagar Main Road,\nJabalpur 482002 (M.P.)";
+  const address = aboutData?.address || "Housing board, Subhash nagar, ward no 75\nmaharajpur, jabalpur, madhyapradesh";
 
   return (
     <section className="about-page" id="about-section">
@@ -88,7 +88,7 @@ const About = () => {
               {address}
             </p>
             <iframe
-              src={aboutData?.mapEmbedUrl || "https://maps.google.com/maps?q=53/33%20Rameshwaram%20Colony,%20Beside%20New%20Laxmi%20Pratisthan,%20Vijay%20Nagar%20Main%20Road,%20Jabalpur%20482002%20(M.P.)&t=&z=16&ie=UTF8&iwloc=&output=embed"}
+              src={aboutData?.mapEmbedUrl || "https://maps.google.com/maps?q=Housing%20board%20,%20Subhash%20nagar%20,%20ward%20no%2075%20maharajpur%20,jabalpur%20,madhyapradesh&t=&z=16&ie=UTF8&iwloc=&output=embed"}
               width="100%"
               height="200"
               style={{ border: "1px solid var(--border)", borderRadius: "var(--radius)", background: "var(--card)" }}
