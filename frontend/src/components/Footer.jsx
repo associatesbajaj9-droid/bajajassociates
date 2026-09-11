@@ -39,10 +39,10 @@ const Footer = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [navigate]);
 
-  const phone = footerData?.phone || import.meta.env.VITE_PHONE_NUMBER || "7225001109";
+  const phone = import.meta.env.VITE_PHONE_NUMBER || footerData?.phone || "7225001109";
   const email = footerData?.email || "bajajassociates.furniture@gmail.com";
-  const igLink = footerData?.instagramLink || import.meta.env.VITE_INSTAGRAM_LINK || "https://www.instagram.com/singhai.harshjain";
-  const mapLink = footerData?.mapEmbedUrl || import.meta.env.VITE_MAPS_LINK || "https://maps.app.goo.gl/rbXvJT3BbKEgCAqw5";
+  const igLink = import.meta.env.VITE_INSTAGRAM_LINK || footerData?.instagramLink || "https://www.instagram.com/singhai.harshjain";
+  const mapLink = import.meta.env.VITE_MAPS_LINK || footerData?.mapEmbedUrl || "https://maps.app.goo.gl/rbXvJT3BbKEgCAqw5";
   const address = footerData?.address || "Housing board, Subhash nagar, ward no 75\nmaharajpur, jabalpur, madhyapradesh";
   const mapEmbedUrl = footerData?.mapEmbedUrl || "https://maps.google.com/maps?q=Housing%20board%20,%20Subhash%20nagar%20,%20ward%20no%2075%20maharajpur%20,jabalpur%20,madhyapradesh&t=&z=16&ie=UTF8&iwloc=&output=embed";
 

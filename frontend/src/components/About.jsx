@@ -13,11 +13,10 @@ const About = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const envWaNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "7225001109";
-  const waNumber = aboutData?.phone || envWaNumber;
-  const phone = aboutData?.phone || import.meta.env.VITE_PHONE_NUMBER || "7225001109";
-  const igLink = aboutData?.instagramLink || import.meta.env.VITE_INSTAGRAM_LINK || "https://www.instagram.com/singhai.harshjain";
-  const mapLink = aboutData?.mapEmbedUrl || import.meta.env.VITE_MAPS_LINK || "https://maps.app.goo.gl/rbXvJT3BbKEgCAqw5";
+  const waNumber = import.meta.env.VITE_WHATSAPP_NUMBER || aboutData?.phone || "7225001109";
+  const phone = import.meta.env.VITE_PHONE_NUMBER || aboutData?.phone || "7225001109";
+  const igLink = import.meta.env.VITE_INSTAGRAM_LINK || aboutData?.instagramLink || "https://www.instagram.com/singhai.harshjain";
+  const mapLink = import.meta.env.VITE_MAPS_LINK || aboutData?.mapEmbedUrl || "https://maps.app.goo.gl/rbXvJT3BbKEgCAqw5";
 
   const openWhatsApp = () => {
     const msg = encodeURIComponent("Hi! I'd like to know more about Bajaj Associates furniture store.");
