@@ -9,8 +9,9 @@ const Footer = () => {
   const [footerData, setFooterData] = useState(null);
 
   useEffect(() => {
-    const siteId = import.meta.env.VITE_SITE_ID || "site1";
-    fetch(`/api/about?site=${siteId}`)
+    const siteId = import.meta.env.VITE_SITE_ID;
+    const url = siteId ? `/api/about?site=${siteId}` : '/api/about';
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setFooterData(data))
       .catch((err) => console.error("Failed to load footer data", err));

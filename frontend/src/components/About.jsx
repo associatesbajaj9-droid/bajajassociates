@@ -6,8 +6,9 @@ const About = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const siteId = import.meta.env.VITE_SITE_ID || "site1";
-    fetch(`/api/about?site=${siteId}`)
+    const siteId = import.meta.env.VITE_SITE_ID;
+    const url = siteId ? `/api/about?site=${siteId}` : '/api/about';
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setAboutData(data))
       .catch((err) => console.error("Failed to load about section data", err))

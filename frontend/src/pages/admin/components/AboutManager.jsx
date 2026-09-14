@@ -180,7 +180,7 @@ const AboutManager = () => {
         💡 <strong>Currently Editing: {selectedSite === 'site1' ? 'Site 1 (Primary)' : 'Site 2 (Second Project)'}</strong>
         {selectedSite === 'site2' && (
           <div style={{ marginTop: '0.35rem', color: 'var(--admin-text-muted)' }}>
-            To link your second Vercel deployment to Site 2, add the Environment Variable <code>VITE_SITE_ID=site2</code> in your 2nd project's Vercel Settings.
+            To link your second Vercel deployment to Site 2, add the Environment Variable <code>SITE_ID=site2</code> in your 2nd project's Vercel Settings.
           </div>
         )}
       </div>

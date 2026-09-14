@@ -25,7 +25,8 @@ module.exports = async (req, res) => {
   try {
     await connectDB();
 
-    const siteId = (req.query.site || req.body?.siteId || 'site1').toLowerCase().trim();
+    const defaultSiteId = process.env.SITE_ID || process.env.VITE_SITE_ID || 'site1';
+    const siteId = (req.query.site || req.body?.siteId || defaultSiteId).toLowerCase().trim();
 
     if (req.method === 'GET') {
       let aboutData = await About.findOne({ siteId });
