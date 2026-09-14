@@ -94,17 +94,24 @@ const AboutManager = () => {
       const res = await fetch(`/api/about?site=${selectedSite}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({ ...formData, siteId: selectedSite }),
       });
 
       if (res.ok) {
         setMessage({ type: 'success', text: `Details for ${selectedSite === 'site1' ? 'Site 1' : 'Site 2'} updated successfully!` });
       } else {
-        const err = await res.json();
-        setMessage({ type: 'error', text: err.message || 'Failed to update about section' });
+        let errMsg = 'Failed to update details';
+        try {
+          const err = await res.json();
+          errMsg = err.message || err.error || errMsg;
+        } catch {
+          errMsg = `Server error (${res.status})`;
+        }
+        setMessage({ type: 'error', text: errMsg });
       }
     } catch (err) {
-      setMessage({ type: 'error', text: 'Error saving changes' });
+      setMessage({ type: 'error', text: err.message || 'Error saving changes' });
     } finally {
       setSaving(false);
     }

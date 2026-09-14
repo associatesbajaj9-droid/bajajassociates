@@ -48,22 +48,39 @@ module.exports = async (req, res) => {
       const cookies = req.headers.cookie;
       const isAuthenticated = cookies && cookies.includes('admin_session=authenticated');
       if (!isAuthenticated) {
-        return res.status(401).json({ message: 'Unauthorized' });
+        return res.status(401).json({ message: 'Session expired or unauthorized. Please log in again to save changes.' });
       }
 
-      let aboutData = await About.findOne({ siteId });
-      if (!aboutData && siteId === 'site1') {
-        aboutData = await About.findOne({ siteId: { $exists: false } });
+      const updateData = {
+        title: req.body.title ?? defaultAboutData.title,
+        badge: req.body.badge ?? defaultAboutData.badge,
+        tagline: req.body.tagline ?? defaultAboutData.tagline,
+        story1: req.body.story1 ?? defaultAboutData.story1,
+        story2: req.body.story2 ?? defaultAboutData.story2,
+        phone: req.body.phone ?? defaultAboutData.phone,
+        email: req.body.email ?? defaultAboutData.email,
+        instagramLink: req.body.instagramLink ?? defaultAboutData.instagramLink,
+        storeImageUrl: req.body.storeImageUrl ?? '',
+        address: req.body.address ?? defaultAboutData.address,
+        mapEmbedUrl: req.body.mapEmbedUrl ?? defaultAboutData.mapEmbedUrl,
+        siteId
+      };
+
+      let filter = { siteId };
+      if (siteId === 'site1') {
+        const existing = await About.findOne({ $or: [{ siteId: 'site1' }, { siteId: { $exists: false } }] });
+        if (existing) {
+          filter = { _id: existing._id };
+        }
       }
 
-      if (aboutData) {
-        Object.assign(aboutData, req.body, { siteId });
-        await aboutData.save();
-      } else {
-        aboutData = await About.create({ ...defaultAboutData, ...req.body, siteId });
-      }
+      const updated = await About.findOneAndUpdate(
+        filter,
+        { $set: updateData },
+        { new: true, upsert: true, setDefaultsOnInsert: true }
+      );
 
-      return res.status(200).json({ message: 'About section updated successfully', data: aboutData });
+      return res.status(200).json({ message: 'About section updated successfully', data: updated });
     }
 
     res.setHeader('Allow', ['GET', 'POST', 'PUT']);
