@@ -1426,6 +1426,13 @@ img { display: block; }
   border: 1px solid var(--border);
 }
 .about-phone:hover { border-color: var(--accent); color: var(--accent); }
+.about-email {
+  background: var(--bg);
+  color: var(--text-h);
+  border: 1px solid var(--border);
+  word-break: break-all;
+}
+.about-email:hover { border-color: var(--accent); color: var(--accent); }
 .about-wa {
   background: var(--wa);
   color: #fff;

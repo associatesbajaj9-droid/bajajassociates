@@ -40,7 +40,7 @@ const Footer = () => {
   }, [navigate]);
 
   const phone = import.meta.env.VITE_PHONE_NUMBER || footerData?.phone || "7225001109";
-  const email = footerData?.email || "bajajassociates.furniture@gmail.com";
+  const email = footerData?.email || "Shashankgogia@gmail.com";
   const igLink = import.meta.env.VITE_INSTAGRAM_LINK || footerData?.instagramLink || "https://www.instagram.com/singhai.harshjain";
   const mapLink = import.meta.env.VITE_MAPS_LINK || footerData?.mapEmbedUrl || "https://maps.app.goo.gl/rbXvJT3BbKEgCAqw5";
   const address = footerData?.address || "Housing board, Subhash nagar, ward no 75\nmaharajpur, jabalpur, madhyapradesh";

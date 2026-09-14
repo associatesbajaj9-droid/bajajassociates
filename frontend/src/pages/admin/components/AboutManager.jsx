@@ -237,7 +237,7 @@ const AboutManager = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="bajajassociates.furniture@gmail.com"
+            placeholder="Shashankgogia@gmail.com"
             style={inputStyle}
           />
         </div>

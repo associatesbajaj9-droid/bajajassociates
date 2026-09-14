@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaWhatsapp, FaInstagram, FaMapMarkerAlt, FaPhone, FaStore, FaTrophy, FaCouch, FaTree, FaTruck } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaMapMarkerAlt, FaPhone, FaStore, FaTrophy, FaCouch, FaTree, FaTruck, FaEnvelope } from "react-icons/fa";
 
 const About = () => {
   const [aboutData, setAboutData] = useState(null);
@@ -15,6 +15,7 @@ const About = () => {
 
   const waNumber = import.meta.env.VITE_WHATSAPP_NUMBER || aboutData?.phone || "7225001109";
   const phone = import.meta.env.VITE_PHONE_NUMBER || aboutData?.phone || "7225001109";
+  const email = import.meta.env.VITE_EMAIL || aboutData?.email || "Shashankgogia@gmail.com";
   const igLink = import.meta.env.VITE_INSTAGRAM_LINK || aboutData?.instagramLink || "https://www.instagram.com/singhai.harshjain";
   const mapLink = import.meta.env.VITE_MAPS_LINK || aboutData?.mapEmbedUrl || "https://maps.app.goo.gl/rbXvJT3BbKEgCAqw5";
 
@@ -64,6 +65,10 @@ const About = () => {
               <a href={`tel:+91${phone}`} className="about-social-item about-phone">
                 <FaPhone size={18} />
                 <span>+91 {phone}</span>
+              </a>
+              <a href={`mailto:${email}`} className="about-social-item about-email">
+                <FaEnvelope size={18} />
+                <span>{email}</span>
               </a>
               <button className="about-social-item about-wa" onClick={openWhatsApp}>
                 <FaWhatsapp size={18} />
