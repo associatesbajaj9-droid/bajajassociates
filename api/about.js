@@ -25,10 +25,21 @@ module.exports = async (req, res) => {
   try {
     await connectDB();
 
+    const siteId = (req.query.site || req.body?.siteId || 'site1').toLowerCase().trim();
+
     if (req.method === 'GET') {
-      let aboutData = await About.findOne();
+      let aboutData = await About.findOne({ siteId });
+      if (!aboutData && siteId === 'site1') {
+        // Fallback for pre-existing document without siteId
+        aboutData = await About.findOne({ siteId: { $exists: false } });
+        if (aboutData) {
+          aboutData.siteId = 'site1';
+          await aboutData.save();
+        }
+      }
+
       if (!aboutData) {
-        aboutData = await About.create(defaultAboutData);
+        aboutData = await About.create({ ...defaultAboutData, siteId });
       }
       return res.status(200).json(aboutData);
     }
@@ -40,12 +51,16 @@ module.exports = async (req, res) => {
         return res.status(401).json({ message: 'Unauthorized' });
       }
 
-      let aboutData = await About.findOne();
+      let aboutData = await About.findOne({ siteId });
+      if (!aboutData && siteId === 'site1') {
+        aboutData = await About.findOne({ siteId: { $exists: false } });
+      }
+
       if (aboutData) {
-        Object.assign(aboutData, req.body);
+        Object.assign(aboutData, req.body, { siteId });
         await aboutData.save();
       } else {
-        aboutData = await About.create({ ...defaultAboutData, ...req.body });
+        aboutData = await About.create({ ...defaultAboutData, ...req.body, siteId });
       }
 
       return res.status(200).json({ message: 'About section updated successfully', data: aboutData });

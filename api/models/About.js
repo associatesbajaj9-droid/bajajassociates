@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const AboutSchema = new mongoose.Schema({
+  siteId: { type: String, default: 'site1', index: true },
   title: { type: String, default: 'About Bajaj Associates' },
   badge: { type: String, default: 'Our Story' },
   tagline: { type: String, default: 'Premium furniture & decor trusted by 500+ happy homes' },
