@@ -13,12 +13,21 @@ const AboutSchema = new mongoose.Schema({
   storeImageUrl: { type: String, default: '' },
   address: { type: String, default: '53/33 Rameshwaram Colony, Beside New Laxmi Pratisthan, Vijay Nagar Main Road, Jabalpur 482002 (M.P.)' },
   mapEmbedUrl: { type: String, default: 'https://maps.google.com/maps?q=53/33%20Rameshwaram%20Colony,%20Beside%20New%20Laxmi%20Pratisthan,%20Vijay%20Nagar%20Main%20Road,%20Jabalpur%20482002%20(M.P.)&t=&z=16&ie=UTF8&iwloc=&output=embed' },
-  stats: [
-    { icon: 'FaTrophy', label: '15+ Years', sub: 'Experience' },
-    { icon: 'FaCouch', label: '1000+', sub: 'Designs' },
-    { icon: 'FaTree', label: 'Solid Wood', sub: 'Premium Quality' },
-    { icon: 'FaTruck', label: 'Free Delivery', sub: 'Local Shipping' }
-  ]
+  stats: {
+    type: [
+      {
+        icon: { type: String, default: 'FaTrophy' },
+        label: { type: String, default: '15+ Years' },
+        sub: { type: String, default: 'Experience' }
+      }
+    ],
+    default: [
+      { icon: 'FaTrophy', label: '15+ Years', sub: 'Experience' },
+      { icon: 'FaCouch', label: '1000+', sub: 'Designs' },
+      { icon: 'FaTree', label: 'Solid Wood', sub: 'Premium Quality' },
+      { icon: 'FaTruck', label: 'Free Delivery', sub: 'Local Shipping' }
+    ]
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.models.About || mongoose.model('About', AboutSchema);
